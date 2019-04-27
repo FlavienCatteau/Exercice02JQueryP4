@@ -1,17 +1,13 @@
 $(function(){
-	var note1;
-	var note2;
-	var note3;
-	var note4;
-	var note5;
-
+	// Création de la méthode click sur le bouton d'id #calcul
 	$('#calcul').click(function(){
-		note1 = Number($('.note1').val());
-		note2 = Number($('.note2').val());
-		note3 = Number($('.note3').val());
-		note4 = Number($('.note4').val());
-		note5 = Number($('.note5').val());
-		var moyenneCalcul = ((note1+note2+note3+note4+note5)/5).toFixed(2);
+		// on récupère ce qu'il y a dans nos input dans la variable notes
+		var notes = $('input');
+		var sum = 0;
+		$.each(notes, function(){
+			sum += Number($(this).val());
+		});
+		var moyenneCalcul = (sum/notes.length).toFixed(2);
 		if (moyenneCalcul >=0 && moyenneCalcul < 10){
 			$result = "En dessous de la moyenne";
 		}
